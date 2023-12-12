@@ -1,1 +1,1 @@
-vertex_submit(vbMain, debugMode ? pr_linelist : pr_trianglelist, -1);
+vertex_submit(vbMain, pr_trianglelist, -1);
