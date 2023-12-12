@@ -1,5 +1,5 @@
 if (moveX != 0 || moveY != 0) {
-	image_speed = 1;
+	image_speed = inputSlow ? 0.3 : 1;
 	
 	if (moveX != 0) {
 		image_xscale = sign(moveX);
