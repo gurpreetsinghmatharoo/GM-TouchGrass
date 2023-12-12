@@ -1,7 +1,7 @@
 {
   "resourceType": "GMRoom",
   "resourceVersion": "1.0",
-  "name": "Room1",
+  "name": "tg_rmTest",
   "creationCodeFile": "",
   "inheritCode": false,
   "inheritCreationOrder": false,
@@ -14,7 +14,7 @@
   ],
   "parent": {
     "name": "Rooms",
-    "path": "folders/Rooms.yy",
+    "path": "folders/TouchGrass_DemoAssets/Rooms.yy",
   },
   "parentRoom": null,
   "physicsSettings": {
