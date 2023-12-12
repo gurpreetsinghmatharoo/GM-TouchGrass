@@ -25,12 +25,12 @@
     "IDEVersion": "2023.11.0.121",
   },
   "resources": [
-    {"id":{"name":"tg_oPlayer","path":"objects/tg_oPlayer/tg_oPlayer.yy",},},
-    {"id":{"name":"tg_sPlayer","path":"sprites/tg_sPlayer/tg_sPlayer.yy",},},
-    {"id":{"name":"tg_rmTest","path":"rooms/tg_rmTest/tg_rmTest.yy",},},
+    {"id":{"name":"tg_demo_oPlayer","path":"objects/tg_demo_oPlayer/tg_demo_oPlayer.yy",},},
+    {"id":{"name":"tg_demo_sPlayer","path":"sprites/tg_demo_sPlayer/tg_demo_sPlayer.yy",},},
+    {"id":{"name":"tg_demo_rmTest","path":"rooms/tg_demo_rmTest/tg_demo_rmTest.yy",},},
   ],
   "RoomOrderNodes": [
-    {"roomId":{"name":"tg_rmTest","path":"rooms/tg_rmTest/tg_rmTest.yy",},},
+    {"roomId":{"name":"tg_demo_rmTest","path":"rooms/tg_demo_rmTest/tg_demo_rmTest.yy",},},
   ],
   "templateType": "game",
   "TextureGroups": [

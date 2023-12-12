@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "tg_oPlayer",
+  "name": "tg_demo_oPlayer",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
@@ -31,8 +31,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "tg_sPlayer",
-    "path": "sprites/tg_sPlayer/tg_sPlayer.yy",
+    "name": "tg_demo_sPlayer",
+    "path": "sprites/tg_demo_sPlayer/tg_demo_sPlayer.yy",
   },
   "spriteMaskId": null,
   "visible": true,
