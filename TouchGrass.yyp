@@ -17,6 +17,8 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"TouchGrass_DemoAssets","folderPath":"folders/TouchGrass_DemoAssets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"TouchGrass","folderPath":"folders/TouchGrass.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Objects","folderPath":"folders/TouchGrass/Objects.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sprites","folderPath":"folders/TouchGrass/Sprites.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Scripts","folderPath":"folders/TouchGrass/Scripts.yy",},
   ],
   "IncludedFiles": [],
   "isEcma": false,
@@ -27,6 +29,10 @@
   "resources": [
     {"id":{"name":"tg_demo_oPlayer","path":"objects/tg_demo_oPlayer/tg_demo_oPlayer.yy",},},
     {"id":{"name":"tg_demo_sPlayer","path":"sprites/tg_demo_sPlayer/tg_demo_sPlayer.yy",},},
+    {"id":{"name":"tg_sGrass","path":"sprites/tg_sGrass/tg_sGrass.yy",},},
+    {"id":{"name":"tg_oGrass","path":"objects/tg_oGrass/tg_oGrass.yy",},},
+    {"id":{"name":"tg_Classes","path":"scripts/tg_Classes/tg_Classes.yy",},},
+    {"id":{"name":"tg_Functions","path":"scripts/tg_Functions/tg_Functions.yy",},},
     {"id":{"name":"tg_demo_rmTest","path":"rooms/tg_demo_rmTest/tg_demo_rmTest.yy",},},
   ],
   "RoomOrderNodes": [
