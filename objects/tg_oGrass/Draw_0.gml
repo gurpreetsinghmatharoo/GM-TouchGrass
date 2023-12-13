@@ -1,3 +1,4 @@
+// Camera check
 var _cam = tg_oManager.mainCamera;
 
 if (_cam != -1) {
@@ -10,4 +11,15 @@ if (_cam != -1) {
 	}
 }
 
+// Draw grass
+shader_set(tg_shGrass);
+
+if (instance_exists(playerInst)) {
+	shader_set_uniform_f(uniPlayerPos, playerInst.x, playerInst.bbox_bottom);
+	shader_set_uniform_f(uniPlayerRadius, playerRadius);
+	shader_set_uniform_f(uniCollisionBend, collisionBend);
+}
+
 vertex_submit(vbMain, pr_trianglelist, -1);
+
+shader_reset();

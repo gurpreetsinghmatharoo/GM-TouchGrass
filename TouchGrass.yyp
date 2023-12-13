@@ -29,6 +29,7 @@
     "IDEVersion": "2023.11.0.121",
   },
   "resources": [
+    {"id":{"name":"tg_shGrass","path":"shaders/tg_shGrass/tg_shGrass.yy",},},
     {"id":{"name":"tg_acGrassCurve","path":"animcurves/tg_acGrassCurve/tg_acGrassCurve.yy",},},
     {"id":{"name":"tg_demo_oPlayer","path":"objects/tg_demo_oPlayer/tg_demo_oPlayer.yy",},},
     {"id":{"name":"tg_demo_sPlayer","path":"sprites/tg_demo_sPlayer/tg_demo_sPlayer.yy",},},

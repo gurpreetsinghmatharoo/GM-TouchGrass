@@ -13,11 +13,13 @@ function VertexCreateBlade(_vb, _x, _y, _bladeInfo) {
 	// tri A
 	vertex_position_3d(_vb, _x - _bladeInfo.baseThickness / 2, _y, -_y);
 	vertex_color(_vb, _bladeInfo.baseColour, 1);
-	vertex_position(_vb, 0, 0);
+	vertex_texcoord(_vb, 0, 0);
+	vertex_normal(_vb, _x, _y, -_y);
 	
 	vertex_position_3d(_vb, _x + _bladeInfo.baseThickness / 2, _y, -_y);
 	vertex_color(_vb, _bladeInfo.baseColour, 1);
-	vertex_position(_vb, 0, 0);
+	vertex_texcoord(_vb, 0, 0);
+	vertex_normal(_vb, _x, _y, -_y);
 	
 	// Divisions
 	var _divs = _bladeInfo.divs, _h, _w, _c, _lastX = _x + _bladeInfo.baseThickness / 2, _lastY = _y, _lastColour = _bladeInfo.baseColour, _xx;
@@ -32,29 +34,35 @@ function VertexCreateBlade(_vb, _x, _y, _bladeInfo) {
 		
 		vertex_position_3d(_vb, _xx - _w / 2, _y - _h, -_y);
 		vertex_color(_vb, _c, 1);
-		vertex_position(_vb, 0, 0);
+		vertex_texcoord(_vb, 0, 0);
+		vertex_normal(_vb, _x, _y, -_y);
 	
 		// tri B
 		vertex_position_3d(_vb, _xx - _w / 2, _y - _h, -_y);
 		vertex_color(_vb, _c, 1);
-		vertex_position(_vb, 0, 0);
+		vertex_texcoord(_vb, 0, 0);
+		vertex_normal(_vb, _x, _y, -_y);
 	
 		vertex_position_3d(_vb, _xx + _w / 2, _y - _h, -_y);
 		vertex_color(_vb, _c, 1);
-		vertex_position(_vb, 0, 0);
+		vertex_texcoord(_vb, 0, 0);
+		vertex_normal(_vb, _x, _y, -_y);
 	
 		vertex_position_3d(_vb, _lastX, _lastY, -_y);
 		vertex_color(_vb, _lastColour, 1);
-		vertex_position(_vb, 0, 0);
+		vertex_texcoord(_vb, 0, 0);
+		vertex_normal(_vb, _x, _y, -_y);
 		
 		// tri A
 		vertex_position_3d(_vb, _xx - _w / 2, _y - _h, -_y);
 		vertex_color(_vb, _c, 1);
-		vertex_position(_vb, 0, 0);
+		vertex_texcoord(_vb, 0, 0);
+		vertex_normal(_vb, _x, _y, -_y);
 	
 		vertex_position_3d(_vb, _xx + _w / 2, _y - _h, -_y);
 		vertex_color(_vb, _c, 1);
-		vertex_position(_vb, 0, 0);
+		vertex_texcoord(_vb, 0, 0);
+		vertex_normal(_vb, _x, _y, -_y);
 		
 		_lastX = _xx + _w / 2;
 		_lastY = _y - _h;
@@ -69,25 +77,30 @@ function VertexCreateBlade(_vb, _x, _y, _bladeInfo) {
 	if (_topThickness <= 0) {
 		vertex_position_3d(_vb, _x + _bend, _y - _bladeInfo.height, -_y);
 		vertex_color(_vb, _bladeInfo.tipColour, 1);
-		vertex_position(_vb, 0, 0);
+		vertex_texcoord(_vb, 0, 0);
+		vertex_normal(_vb, _x, _y, -_y);
 	}
 	else {
 		vertex_position_3d(_vb, (_x - _topThickness / 2) + _bend, _y - _bladeInfo.height, -_y);
 		vertex_color(_vb, _bladeInfo.tipColour, 1);
-		vertex_position(_vb, 0, 0);
+		vertex_texcoord(_vb, 0, 0);
+		vertex_normal(_vb, _x, _y, -_y);
 		
 		// tri B
 		vertex_position_3d(_vb, _lastX, _lastY, -_y);
 		vertex_color(_vb, _lastColour, 1);
-		vertex_position(_vb, 0, 0);
+		vertex_texcoord(_vb, 0, 0);
+		vertex_normal(_vb, _x, _y, -_y);
 		
 		vertex_position_3d(_vb, (_x - _topThickness / 2 + _bend), _y - _bladeInfo.height, -_y);
 		vertex_color(_vb, _bladeInfo.tipColour, 1);
-		vertex_position(_vb, 0, 0);
+		vertex_texcoord(_vb, 0, 0);
+		vertex_normal(_vb, _x, _y, -_y);
 		
 		vertex_position_3d(_vb, (_x + _topThickness / 2 + _bend), _y - _bladeInfo.height, -_y);
 		vertex_color(_vb, _bladeInfo.tipColour, 1);
-		vertex_position(_vb, 0, 0);
+		vertex_texcoord(_vb, 0, 0);
+		vertex_normal(_vb, _x, _y, -_y);
 	}
 }
 

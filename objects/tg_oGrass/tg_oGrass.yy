@@ -41,6 +41,9 @@
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"bladeBendJitter","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"12","varType":0,},
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"bladeBaseJitter","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"14","varType":0,},
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"bladeHeightJitter","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"30","varType":0,},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"playerObject","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"tg_demo_oPlayer","varType":5,},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"playerRadius","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"36","varType":0,},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"collisionBend","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"32","varType":0,},
   ],
   "solid": false,
   "spriteId": {

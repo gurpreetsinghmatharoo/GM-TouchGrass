@@ -1,11 +1,19 @@
 gpu_set_ztestenable(true);
 
+// Get player
+playerInst = undefined;
+
+if (object_exists(playerObject)) {
+	playerInst = instance_find(playerObject, 0);
+}
+
 // Define format
 vertex_format_begin();
 
 vertex_format_add_position_3d();
 vertex_format_add_color();
-vertex_format_add_custom(vertex_type_float2, vertex_usage_position); // Offset
+vertex_format_add_custom(vertex_type_float2, vertex_usage_texcoord); // Offset
+vertex_format_add_custom(vertex_type_float3, vertex_usage_normal); // Grass base position
 
 vfMain = vertex_format_end();
 
@@ -49,7 +57,7 @@ if (!instance_exists(tg_oManager)) {
 	
 	// Debug
 	if (debugMode) {
-		dbg_view($"TouchGrass - Click Refresh to apply changes", true);
+		dbg_view($"TouchGrass - Click Refresh to apply changes", false);
 		dbg_button("Refresh", method(self, function() {
 			with (tg_oGrass) {
 				if (other.id != self.id) {
@@ -86,3 +94,8 @@ if (!instance_exists(tg_oManager)) {
 }
 
 if (!debugMode) vertex_freeze(vbMain);
+
+// Shader uniforms
+uniPlayerPos = tg_oManager.uniPlayerPos;
+uniPlayerRadius = tg_oManager.uniPlayerRadius;
+uniCollisionBend = tg_oManager.uniCollisionBend;
