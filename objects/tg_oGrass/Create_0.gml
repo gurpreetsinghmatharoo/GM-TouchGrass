@@ -5,7 +5,7 @@ vertex_format_begin();
 
 vertex_format_add_position_3d();
 vertex_format_add_color();
-vertex_format_add_custom(vertex_type_float2, vertex_usage_position); // Velocity
+vertex_format_add_custom(vertex_type_float2, vertex_usage_position); // Offset
 
 vfMain = vertex_format_end();
 
@@ -43,29 +43,46 @@ Generate = function () {
 
 Generate();
 
-// Debug
-if (debugMode) {
-	dbg_view($"TouchGrass ({id})", true);
-	dbg_section("Properties");
-	dbg_slider(ref_create(self, "bladeDist"), 1, 50, "Blade Distance");
-	dbg_slider(ref_create(self, "xToYDistRatio"), 0.1, 1, "Dist X:Y Ratio");
-	dbg_slider(ref_create(self, "bladeBaseThickness"), 1, 32, "Base Thickness");
-	dbg_slider(ref_create(self, "bladeTopThickness"), 1, 10, "Top Thickness");
-	dbg_slider(ref_create(self, "bladeHeight"), 1, 100, "Height");
-	dbg_slider(ref_create(self, "bladeDivs"), 0, 32, "Divs");
-	dbg_color(ref_create(self, "bladeBaseColour"), "Base Colour");
-	dbg_color(ref_create(self, "bladeTipColour"), "Tip Colour");
-	dbg_slider(ref_create(self, "bladeBend"), 1, 40, "Bend");
-	dbg_section("Jitters");
-	dbg_slider(ref_create(self, "bladePositionJitter"), 1, 32, "Position Jitter");
-	dbg_slider(ref_create(self, "bladeBendJitter"), 1, 32, "Bend Jitter");
-	dbg_slider(ref_create(self, "bladeBaseJitter"), 1, 32, "Base Jitter");
-	dbg_slider(ref_create(self, "bladeHeightJitter"), 1, 100, "Height Jitter");
+// Create manager
+if (!instance_exists(tg_oManager)) {
+	instance_create_depth(0, 0, 0, tg_oManager);
 	
-	dbg_button("Refresh", function() {
-		Generate();
-	});
+	// Debug
+	if (debugMode) {
+		dbg_view($"TouchGrass - Click Refresh to apply changes", true);
+		dbg_button("Refresh", method(self, function() {
+			with (tg_oGrass) {
+				if (other.id != self.id) {
+					var _vars = struct_get_names(other);
+					var _count = array_length(_vars);
+					for (var i = 0; i < _count; i ++) {
+						var _name = _vars[i];
+						show_debug_message("\n" + _name);
+						if (_name != "Generate" && _name != "vbMain" && _name != "vfMain" && _name != "x" && _name != "y" && _name != "sprite_width" && _name != "sprite_height" && _name != "image_xscale" && _name != "image_yscale") {
+							variable_struct_set(self, _name, struct_get(other, _name));
+						}
+					}
+				}
+				
+				Generate();
+			}
+		}));
+		dbg_section("Properties");
+		dbg_slider(ref_create(self, "bladeDist"), 1, 50, "Blade Distance");
+		dbg_slider(ref_create(self, "xToYDistRatio"), 0.1, 1, "Dist X:Y Ratio");
+		dbg_slider(ref_create(self, "bladeBaseThickness"), 1, 100, "Base Thickness");
+		dbg_slider(ref_create(self, "bladeTopThickness"), 1, 20, "Top Thickness");
+		dbg_slider(ref_create(self, "bladeHeight"), 1, 100, "Height");
+		dbg_slider(ref_create(self, "bladeDivs"), 0, 32, "Divs");
+		dbg_color(ref_create(self, "bladeBaseColour"), "Base Colour");
+		dbg_color(ref_create(self, "bladeTipColour"), "Tip Colour");
+		dbg_slider(ref_create(self, "bladeBend"), 1, 100, "Bend");
+		dbg_section("Jitters");
+		dbg_slider(ref_create(self, "bladePositionJitter"), 1, 100, "Position Jitter");
+		dbg_slider(ref_create(self, "bladeBendJitter"), 1, 100, "Bend Jitter");
+		dbg_slider(ref_create(self, "bladeBaseJitter"), 1, 100, "Base Jitter");
+		dbg_slider(ref_create(self, "bladeHeightJitter"), 1, 100, "Height Jitter");
+	}
 }
-else {
-	vertex_freeze(vbMain);
-}
+
+if (!debugMode) vertex_freeze(vbMain);
