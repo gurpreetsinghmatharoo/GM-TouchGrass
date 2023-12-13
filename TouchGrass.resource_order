@@ -7,6 +7,7 @@
     {"name":"Objects","order":1,"path":"folders/TouchGrass/Objects.yy",},
     {"name":"Sprites","order":2,"path":"folders/TouchGrass/Sprites.yy",},
     {"name":"Scripts","order":3,"path":"folders/TouchGrass/Scripts.yy",},
+    {"name":"Animation Curves","order":5,"path":"folders/TouchGrass/Animation Curves.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"tg_Functions","order":1,"path":"scripts/tg_Functions/tg_Functions.yy",},
