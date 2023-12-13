@@ -1,0 +1,3 @@
+Cleanup:
+
+Remove unused texcoord attribute

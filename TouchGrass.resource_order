@@ -11,6 +11,7 @@
     {"name":"Shaders","order":6,"path":"folders/TouchGrass/Shaders.yy",},
   ],
   "ResourceOrderSettings": [
+    {"name":"Notes","order":18,"path":"notes/Notes/Notes.yy",},
     {"name":"tg_oManager","order":1,"path":"objects/tg_oManager/tg_oManager.yy",},
     {"name":"tg_Functions","order":1,"path":"scripts/tg_Functions/tg_Functions.yy",},
   ],

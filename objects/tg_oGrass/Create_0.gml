@@ -76,20 +76,26 @@ if (!instance_exists(tg_oManager)) {
 			}
 		}));
 		dbg_section("Properties");
-		dbg_slider(ref_create(self, "bladeDist"), 1, 50, "Blade Distance");
+		dbg_slider_int(ref_create(self, "bladeDist"), 1, 50, "Blade Distance");
 		dbg_slider(ref_create(self, "xToYDistRatio"), 0.1, 1, "Dist X:Y Ratio");
-		dbg_slider(ref_create(self, "bladeBaseThickness"), 1, 100, "Base Thickness");
-		dbg_slider(ref_create(self, "bladeTopThickness"), 1, 20, "Top Thickness");
-		dbg_slider(ref_create(self, "bladeHeight"), 1, 100, "Height");
-		dbg_slider(ref_create(self, "bladeDivs"), 0, 32, "Divs");
+		dbg_slider_int(ref_create(self, "bladeBaseThickness"), 1, 100, "Base Thickness");
+		dbg_slider_int(ref_create(self, "bladeTopThickness"), 1, 20, "Top Thickness");
+		dbg_slider_int(ref_create(self, "bladeHeight"), 1, 100, "Height");
+		dbg_slider_int(ref_create(self, "bladeDivs"), 0, 32, "Divs");
 		dbg_color(ref_create(self, "bladeBaseColour"), "Base Colour");
 		dbg_color(ref_create(self, "bladeTipColour"), "Tip Colour");
-		dbg_slider(ref_create(self, "bladeBend"), 1, 100, "Bend");
+		dbg_slider_int(ref_create(self, "bladeBend"), 1, 100, "Bend");
 		dbg_section("Jitters");
-		dbg_slider(ref_create(self, "bladePositionJitter"), 1, 100, "Position Jitter");
-		dbg_slider(ref_create(self, "bladeBendJitter"), 1, 100, "Bend Jitter");
-		dbg_slider(ref_create(self, "bladeBaseJitter"), 1, 100, "Base Jitter");
-		dbg_slider(ref_create(self, "bladeHeightJitter"), 1, 100, "Height Jitter");
+		dbg_slider_int(ref_create(self, "bladePositionJitter"), 1, 100, "Position Jitter");
+		dbg_slider_int(ref_create(self, "bladeBendJitter"), 1, 100, "Bend Jitter");
+		dbg_slider_int(ref_create(self, "bladeBaseJitter"), 1, 100, "Base Jitter");
+		dbg_slider_int(ref_create(self, "bladeHeightJitter"), 1, 100, "Height Jitter");
+		dbg_section("Collisions");
+		dbg_slider_int(ref_create(self, "playerRadius"), 1, 200, "Collider Radius");
+		dbg_slider_int(ref_create(self, "collisionXOffset"), -50, 50, "Collider X Offset");
+		dbg_slider_int(ref_create(self, "collisionYOffset"), -50, 50, "Collider Y Offset");
+		dbg_slider_int(ref_create(self, "collisionBend"), 1, 100, "Collision Bend");
+		dbg_slider(ref_create(self, "collisionYBend"), 0, 1, "Collision Y Bend");
 	}
 }
 
