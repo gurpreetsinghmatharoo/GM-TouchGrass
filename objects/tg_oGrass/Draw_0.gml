@@ -15,9 +15,10 @@ if (_cam != -1) {
 shader_set(tg_shGrass);
 
 if (instance_exists(playerInst)) {
-	shader_set_uniform_f(uniPlayerPos, playerInst.x, playerInst.bbox_bottom);
+	shader_set_uniform_f(uniPlayerPos, playerInst.x + collisionXOffset, playerInst.bbox_bottom + collisionYOffset);
 	shader_set_uniform_f(uniPlayerRadius, playerRadius);
 	shader_set_uniform_f(uniCollisionBend, collisionBend);
+	shader_set_uniform_f(uniYOffset, collisionYBend);
 }
 
 vertex_submit(vbMain, pr_trianglelist, -1);

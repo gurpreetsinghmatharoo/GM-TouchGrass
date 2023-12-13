@@ -13,7 +13,7 @@ vertex_format_begin();
 vertex_format_add_position_3d();
 vertex_format_add_color();
 vertex_format_add_custom(vertex_type_float2, vertex_usage_texcoord); // Offset
-vertex_format_add_custom(vertex_type_float3, vertex_usage_normal); // Grass base position
+vertex_format_add_custom(vertex_type_float3, vertex_usage_normal); // Grass base position (xy) and total height
 
 vfMain = vertex_format_end();
 
@@ -99,3 +99,4 @@ if (!debugMode) vertex_freeze(vbMain);
 uniPlayerPos = tg_oManager.uniPlayerPos;
 uniPlayerRadius = tg_oManager.uniPlayerRadius;
 uniCollisionBend = tg_oManager.uniCollisionBend;
+uniYOffset = tg_oManager.uniYOffset;
