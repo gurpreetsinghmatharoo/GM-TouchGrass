@@ -8,6 +8,7 @@
     {"name":"Objects","order":1,"path":"folders/TouchGrass/Objects.yy",},
     {"name":"Scripts","order":3,"path":"folders/TouchGrass/Scripts.yy",},
     {"name":"Sprites","order":2,"path":"folders/TouchGrass/Sprites.yy",},
+    {"name":"Shaders","order":6,"path":"folders/TouchGrass/Shaders.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"tg_oManager","order":1,"path":"objects/tg_oManager/tg_oManager.yy",},

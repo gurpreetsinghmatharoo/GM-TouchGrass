@@ -20,6 +20,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Objects","folderPath":"folders/TouchGrass/Objects.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Scripts","folderPath":"folders/TouchGrass/Scripts.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sprites","folderPath":"folders/TouchGrass/Sprites.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Shaders","folderPath":"folders/TouchGrass/Shaders.yy",},
   ],
   "IncludedFiles": [],
   "isEcma": false,

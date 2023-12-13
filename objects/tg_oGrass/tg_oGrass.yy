@@ -33,7 +33,7 @@
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"bladeBaseThickness","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"18","varType":0,},
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"bladeTopThickness","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"0","varType":0,},
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"bladeHeight","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"40","varType":0,},
-    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"bladeDivs","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"8","varType":0,},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"bladeDivs","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"2","varType":0,},
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"bladePositionJitter","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"32","varType":0,},
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"bladeBaseColour","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"$FF324914","varType":7,},
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"bladeTipColour","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"$FF37B2A0","varType":7,},
