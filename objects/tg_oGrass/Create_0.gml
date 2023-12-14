@@ -113,6 +113,7 @@ uniWind1Texels = tg_oManager.uniWind1Texels;
 uniWind1Power = tg_oManager.uniWind1Power;
 uniWind1Speed = tg_oManager.uniWind1Speed;
 uniWind1Scale = tg_oManager.uniWind1Scale;
+uniTime = tg_oManager.uniTime;
 
 // Texture info
 wind1Texture = sprite_get_texture(wind1Sprite, 0);

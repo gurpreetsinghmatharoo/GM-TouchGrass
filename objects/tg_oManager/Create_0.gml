@@ -13,3 +13,4 @@ uniWind1Texels = shader_get_uniform(tg_shGrass, "wind1Texels");
 uniWind1Power = shader_get_uniform(tg_shGrass, "wind1Power");
 uniWind1Speed = shader_get_uniform(tg_shGrass, "wind1Speed");
 uniWind1Scale = shader_get_uniform(tg_shGrass, "wind1Scale");
+uniTime = shader_get_uniform(tg_shGrass, "time");

@@ -14,6 +14,8 @@ if (_cam != -1) {
 // Draw grass
 shader_set(tg_shGrass);
 
+shader_set_uniform_f(uniTime, (current_time / 1000) * 60);
+
 // Collider uniforms
 if (instance_exists(playerInst)) {
 	shader_set_uniform_f(uniPlayerPos, playerInst.x + collisionXOffset, playerInst.bbox_bottom + collisionYOffset);

@@ -16,7 +16,7 @@ uniform float bend;
 uniform float yOffset;
 
 // Wind uniforms
-
+uniform float time;
 uniform sampler2D wind1Texture;
 uniform vec4 wind1Uvs;
 uniform vec2 wind1Texels;
@@ -70,16 +70,19 @@ void main()
 	float height = (in_Position.y - in_Normal.y) / in_Normal.z;
 	
 	// Get wind1 colour
-	vec2 wind1Pos = in_Position.xy / wind1Scale;
+	vec2 wind1Pos = (in_Position.xy - wind1Speed * time) / wind1Scale;
 	wind1Pos = mod(wind1Pos, 1.);
-	wind1Pos.x = min(0.9, wind1Pos.x) - max(0., wind1Pos.x - 0.9);
-	wind1Pos.y = min(0.9, wind1Pos.y) - max(0., wind1Pos.y - 0.9);
+	//wind1Pos.x = min(0.5, wind1Pos.x) - max(0., wind1Pos.x - 0.5);
+	//wind1Pos.y = min(0.5, wind1Pos.y) - max(0., wind1Pos.y - 0.5);
 	//wind1Pos = wind1Uvs.xy + wind1Pos * (wind1Uvs.zw - wind1Uvs.xy);
 	//vec4 wind1Frag = texture2DLod(wind1Texture, wind1Pos, 1.);
-	float wind1Noise = pNoise(wind1Pos * 4., 2);
+	float wind1Noise = pNoise(wind1Pos * 4., 1);
 	
 	// Wind
-	vec2 windOffset = vec2(wind1Noise * sign(wind1Speed.x), wind1Noise * sign(wind1Speed.y)) * wind1Power * height;
+	float windEffect = wind1Power * -abs(height * height);
+	vec2 windOffset = -vec2(wind1Noise * sign(wind1Speed.x), wind1Noise * sign(wind1Speed.y)) * windEffect;
+	//windOffset.y = -wind1Noise * yOffset * height * in_Normal.z;
+	windOffset.y -= windEffect * wind1Noise;
 	
 	// Collider
 	// Calculate offset to move
@@ -106,6 +109,6 @@ void main()
 	object_space_pos.xy += bladeOffset + windOffset;
     gl_Position = gm_Matrices[MATRIX_WORLD_VIEW_PROJECTION] * object_space_pos;
     
-    v_vColour = in_Colour + vec4(wind1Noise, wind1Noise, wind1Noise, 1.) * 0.4;
+    v_vColour = in_Colour;//vec4(wind1Noise, wind1Noise, wind1Noise, 1.);
     v_vTexcoord = in_TextureCoord;
 }
