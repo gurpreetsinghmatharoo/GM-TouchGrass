@@ -106,3 +106,15 @@ uniPlayerPos = tg_oManager.uniPlayerPos;
 uniPlayerRadius = tg_oManager.uniPlayerRadius;
 uniCollisionBend = tg_oManager.uniCollisionBend;
 uniYOffset = tg_oManager.uniYOffset;
+
+uniWind1Texture = tg_oManager.uniWind1Texture;
+uniWind1Uvs = tg_oManager.uniWind1Uvs;
+uniWind1Texels = tg_oManager.uniWind1Texels;
+uniWind1Power = tg_oManager.uniWind1Power;
+uniWind1Speed = tg_oManager.uniWind1Speed;
+uniWind1Scale = tg_oManager.uniWind1Scale;
+
+// Texture info
+wind1Texture = sprite_get_texture(wind1Sprite, 0);
+wind1Uvs = texture_get_uvs(wind1Texture);
+wind1Texels = [texture_get_texel_width(wind1Texture), texture_get_texel_height(wind1Texture)];

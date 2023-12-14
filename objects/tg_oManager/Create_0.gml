@@ -6,3 +6,10 @@ uniPlayerPos = shader_get_uniform(tg_shGrass, "playerPos");
 uniPlayerRadius = shader_get_uniform(tg_shGrass, "playerRadius");
 uniCollisionBend = shader_get_uniform(tg_shGrass, "bend");
 uniYOffset = shader_get_uniform(tg_shGrass, "yOffset");
+
+uniWind1Texture = shader_get_sampler_index(tg_shGrass, "wind1Texture");
+uniWind1Uvs = shader_get_uniform(tg_shGrass, "wind1Uvs");
+uniWind1Texels = shader_get_uniform(tg_shGrass, "wind1Texels");
+uniWind1Power = shader_get_uniform(tg_shGrass, "wind1Power");
+uniWind1Speed = shader_get_uniform(tg_shGrass, "wind1Speed");
+uniWind1Scale = shader_get_uniform(tg_shGrass, "wind1Scale");

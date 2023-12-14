@@ -14,12 +14,21 @@ if (_cam != -1) {
 // Draw grass
 shader_set(tg_shGrass);
 
+// Collider uniforms
 if (instance_exists(playerInst)) {
 	shader_set_uniform_f(uniPlayerPos, playerInst.x + collisionXOffset, playerInst.bbox_bottom + collisionYOffset);
 	shader_set_uniform_f(uniPlayerRadius, playerRadius);
 	shader_set_uniform_f(uniCollisionBend, collisionBend);
 	shader_set_uniform_f(uniYOffset, collisionYBend);
 }
+
+// Wind 1 uniforms
+texture_set_stage(uniWind1Texture, wind1Texture);
+shader_set_uniform_f(uniWind1Uvs, wind1Uvs[0], wind1Uvs[1], wind1Uvs[2], wind1Uvs[3]);
+shader_set_uniform_f_array(uniWind1Texels, wind1Texels);
+shader_set_uniform_f(uniWind1Power, wind1Power);
+shader_set_uniform_f(uniWind1Speed, wind1SpeedX, wind1SpeedY);
+shader_set_uniform_f(uniWind1Scale, wind1Scale);
 
 vertex_submit(vbMain, pr_trianglelist, -1);
 
