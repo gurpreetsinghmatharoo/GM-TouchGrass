@@ -17,71 +17,61 @@ uniform float yOffset;
 
 // Wind uniforms
 uniform float time;
-uniform sampler2D wind1Texture;
-uniform vec4 wind1Uvs;
-uniform vec2 wind1Texels;
 uniform float wind1Power;
 uniform vec2 wind1Speed;
 uniform float wind1Scale;
 
 
-float rand(vec2 c){
-	return fract(sin(dot(c.xy ,vec2(12.9898,78.233))) * 43758.5453);
+// Noise functions
+// by Xor (https://gmshaders.com/tutorials/tips_and_tricks/)
+float hash(vec2 p)
+{
+    p = mod(p, 7.31); //Bring 'p' to a useful range.
+    //Generate a pseudo random number from 'p'.
+    return fract(sin(p.x*12.9898 + p.y*78.233) * 43758.5453);
+}
+float value_noise(vec2 pos)
+{
+    vec2 cell = floor(pos); //Cell (whole number) coordinates.
+    vec2 sub = pos-cell; //Sub-cell (fractional) coordinates.
+    sub *= sub*(3.-2.*sub); //Cubic interpolation (comment out for linear interpolation).
+    const vec2 off = vec2(0,1); //Offset vector.
+
+    //Sample cell corners and interpolate between them.
+    return mix( mix(hash(cell+off.xx), hash(cell+off.yx), sub.x),
+                mix(hash(cell+off.xy), hash(cell+off.yy), sub.x), sub.y);
+}
+float fractal_noise(vec2 pos, int oct, float amp)
+{
+    float noise_sum = 0.; //Noise total.
+    float weight_sum = 0.; //Weight total.
+    float weight = 1.; //Octave weight.
+
+    for(int i = 0; i < oct; i++) //Iterate through octaves
+    {
+        noise_sum += value_noise(pos) * weight; //Add noise octave.
+        weight_sum += weight; //Add octave weight.
+        weight *= amp; //Reduce octave amplitude by multiplier.
+        pos *= mat2(1.6,1.2,-1.2,1.6); //Rotate and scale.
+    }
+    return noise_sum/weight_sum; //Compute average.
 }
 
-float noise(vec2 p, float freq ){
-	float unit = 1./freq;
-	vec2 ij = floor(p/unit);
-	vec2 xy = mod(p,unit)/unit;
-	//xy = 3.*xy*xy-2.*xy*xy*xy;
-	xy = .5*(1.-cos(3.14 * xy));
-	float a = rand((ij+vec2(0.,0.)));
-	float b = rand((ij+vec2(1.,0.)));
-	float c = rand((ij+vec2(0.,1.)));
-	float d = rand((ij+vec2(1.,1.)));
-	float x1 = mix(a, b, xy.x);
-	float x2 = mix(c, d, xy.x);
-	return mix(x1, x2, xy.y);
-}
-
-float pNoise(vec2 p, int res){
-	float persistance = .5;
-	float n = 0.;
-	float normK = 0.;
-	float f = 4.;
-	float amp = 1.;
-	int iCount = 0;
-	for (int i = 0; i<50; i++){
-		n+=amp*noise(p, f);
-		f*=2.;
-		normK+=amp;
-		amp*=persistance;
-		if (iCount == res) break;
-		iCount++;
-	}
-	float nf = n/normK;
-	return nf*nf*nf*nf;
-}
-
+// Main
 void main()
 {
 	// Blade properties
 	vec2 bottomPos = vec2(in_Normal.x, in_Normal.y);
 	float height = (in_Position.y - in_Normal.y) / in_Normal.z;
 	
-	// Get wind1 colour
+	// Get wind1 noise value
 	vec2 wind1Pos = (in_Position.xy - wind1Speed * time) / wind1Scale;
-	wind1Pos = mod(wind1Pos, 1.);
-	//wind1Pos.x = min(0.5, wind1Pos.x) - max(0., wind1Pos.x - 0.5);
-	//wind1Pos.y = min(0.5, wind1Pos.y) - max(0., wind1Pos.y - 0.5);
-	//wind1Pos = wind1Uvs.xy + wind1Pos * (wind1Uvs.zw - wind1Uvs.xy);
-	//vec4 wind1Frag = texture2DLod(wind1Texture, wind1Pos, 1.);
-	float wind1Noise = pNoise(wind1Pos * 4., 1);
+	//wind1Pos = mod(wind1Pos, 1.);
+	float wind1Noise = fractal_noise(wind1Pos * 4., 2, 0.5);
 	
 	// Wind
 	float windEffect = wind1Power * -abs(height * height);
 	vec2 windOffset = -vec2(wind1Noise * sign(wind1Speed.x), wind1Noise * sign(wind1Speed.y)) * windEffect;
-	//windOffset.y = -wind1Noise * yOffset * height * in_Normal.z;
 	windOffset.y -= windEffect * wind1Noise;
 	
 	// Collider
@@ -101,14 +91,11 @@ void main()
 	// Y offset
 	bladeOffset.y = -distNorm * yOffset * height * in_Normal.z;
 	
-	// Apply offset
-	//in_TextureCoord.x = bladeOffset.x;
-	
 	// Apply the rest
 	vec4 object_space_pos = vec4( in_Position.x, in_Position.y, in_Position.z, 1.0);
 	object_space_pos.xy += bladeOffset + windOffset;
     gl_Position = gm_Matrices[MATRIX_WORLD_VIEW_PROJECTION] * object_space_pos;
     
-    v_vColour = in_Colour;//vec4(wind1Noise, wind1Noise, wind1Noise, 1.);
+    v_vColour = in_Colour;/*vec4(wind1Noise, wind1Noise, wind1Noise, 1.);*/
     v_vTexcoord = in_TextureCoord;
 }

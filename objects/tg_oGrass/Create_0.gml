@@ -57,8 +57,7 @@ if (!instance_exists(tg_oManager)) {
 	
 	// Debug
 	if (debugMode) {
-		dbg_view($"TouchGrass - Click Refresh to apply changes", false);
-		dbg_button("Refresh", method(self, function() {
+		DebugRefresh = function() {
 			with (tg_oGrass) {
 				if (other.id != self.id) {
 					var _vars = struct_get_names(other);
@@ -74,7 +73,10 @@ if (!instance_exists(tg_oManager)) {
 				
 				Generate();
 			}
-		}));
+		}
+		
+		dbg_view($"TouchGrass - Click Refresh to apply changes", true);
+		dbg_button("Refresh", DebugRefresh);
 		dbg_section("Properties");
 		dbg_slider_int(ref_create(self, "bladeDist"), 1, 50, "Blade Distance");
 		dbg_slider(ref_create(self, "xToYDistRatio"));
@@ -112,15 +114,9 @@ uniPlayerRadius = tg_oManager.uniPlayerRadius;
 uniCollisionBend = tg_oManager.uniCollisionBend;
 uniYOffset = tg_oManager.uniYOffset;
 
-uniWind1Texture = tg_oManager.uniWind1Texture;
-uniWind1Uvs = tg_oManager.uniWind1Uvs;
-uniWind1Texels = tg_oManager.uniWind1Texels;
 uniWind1Power = tg_oManager.uniWind1Power;
 uniWind1Speed = tg_oManager.uniWind1Speed;
 uniWind1Scale = tg_oManager.uniWind1Scale;
 uniTime = tg_oManager.uniTime;
 
-// Texture info
-wind1Texture = sprite_get_texture(wind1Sprite, 0);
-wind1Uvs = texture_get_uvs(wind1Texture);
-wind1Texels = [texture_get_texel_width(wind1Texture), texture_get_texel_height(wind1Texture)];
+grassTime = 0;

@@ -14,7 +14,7 @@ if (_cam != -1) {
 // Draw grass
 shader_set(tg_shGrass);
 
-shader_set_uniform_f(uniTime, (current_time / 1000) * 60);
+shader_set_uniform_f(uniTime, grassTime * 60);
 
 // Collider uniforms
 if (instance_exists(playerInst)) {
@@ -25,9 +25,6 @@ if (instance_exists(playerInst)) {
 }
 
 // Wind 1 uniforms
-texture_set_stage(uniWind1Texture, wind1Texture);
-shader_set_uniform_f(uniWind1Uvs, wind1Uvs[0], wind1Uvs[1], wind1Uvs[2], wind1Uvs[3]);
-shader_set_uniform_f_array(uniWind1Texels, wind1Texels);
 shader_set_uniform_f(uniWind1Power, wind1Power);
 shader_set_uniform_f(uniWind1Speed, lengthdir_x(wind1Speed, wind1Direction), lengthdir_y(wind1Speed, wind1Direction));
 shader_set_uniform_f(uniWind1Scale, wind1Scale);
