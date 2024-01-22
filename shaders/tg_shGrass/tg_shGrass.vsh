@@ -74,7 +74,7 @@ void main()
 	//vec2 windNormalised = vec2(sign(wind1Speed.x), sign(wind1Speed.y));
 	vec2 windNormalised = vec2(wind1Speed.x / wind1Speed.z, wind1Speed.y / wind1Speed.z);
 	vec2 windOffset = -vec2(wind1Noise * windNormalised.x, wind1Noise * windNormalised.y) * windEffect;
-	windOffset.y -= windEffect * wind1Noise;
+	windOffset.y -= (windEffect * wind1Noise) * 0.5;
 	
 	// Collider
 	// Calculate offset to move
@@ -94,7 +94,7 @@ void main()
 	bladeOffset.y = -distNorm * yOffset * height * in_Normal.z;
 	
 	// Apply the rest
-	vec4 object_space_pos = vec4( in_Position.x, in_Position.y, in_Position.z, 1.0);
+	vec4 object_space_pos = vec4(in_Position.x, in_Position.y, in_Position.z, 1.0);
 	object_space_pos.xy += bladeOffset + windOffset;
     gl_Position = gm_Matrices[MATRIX_WORLD_VIEW_PROJECTION] * object_space_pos;
     
