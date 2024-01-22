@@ -77,7 +77,7 @@ if (!instance_exists(tg_oManager)) {
 		}));
 		dbg_section("Properties");
 		dbg_slider_int(ref_create(self, "bladeDist"), 1, 50, "Blade Distance");
-		dbg_slider(ref_create(self, "xToYDistRatio"), 0.1, 1, "Dist X:Y Ratio");
+		dbg_slider(ref_create(self, "xToYDistRatio"));
 		dbg_slider_int(ref_create(self, "bladeBaseThickness"), 1, 100, "Base Thickness");
 		dbg_slider_int(ref_create(self, "bladeTopThickness"), 1, 20, "Top Thickness");
 		dbg_slider_int(ref_create(self, "bladeHeight"), 1, 100, "Height");
