@@ -96,6 +96,11 @@ if (!instance_exists(tg_oManager)) {
 		dbg_slider_int(ref_create(self, "collisionYOffset"), -50, 50, "Collider Y Offset");
 		dbg_slider_int(ref_create(self, "collisionBend"), 1, 100, "Collision Bend");
 		dbg_slider(ref_create(self, "collisionYBend"), 0, 1, "Collision Y Bend");
+		dbg_section("Wind 1");
+		dbg_slider(ref_create(self, "wind1Power"), 0, 50);
+		dbg_slider(ref_create(self, "wind1Speed"), 0, 50);
+		dbg_slider(ref_create(self, "wind1Direction"), 0, 360);
+		dbg_slider(ref_create(self, "wind1Scale"), 10, 10000);
 	}
 }
 

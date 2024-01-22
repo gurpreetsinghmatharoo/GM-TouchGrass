@@ -110,15 +110,6 @@ function VertexCreateBlade(_vb, _x, _y, _bladeInfo) {
 
 /// Easing functions
 /// Source: https://easings.net
-function TGEaseOutCirc (_val) {
-	return sqrt(1 - power(_val - 1, 2));
-}
-function TGEaseInCirc (_val) {
-	return 1 - sqrt(1 - power(_val, 2));
-}
-function TGEaseInSine (_val) {
-	return 1 - cos((_val * pi) / 2);
-}
 function TGEaseInCubic (_val) {
 	return _val * _val * _val;
 }

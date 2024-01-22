@@ -1,11 +1,11 @@
 Cleanup:
 
-Convert windSpeedX/Y to windSpeed/windDirection
 Remove wind texture things
 Remove unused texcoord attribute
 Optimise things so each grass instance is not having to do the same thing again and again, those should be handled by the manager
 windXScale should be Size
 
 To do:
+Wind noise has seams
 Noise based placement
 Rotating grass instance should place grass in rotated rect area
