@@ -99,5 +99,5 @@ void main()
     gl_Position = gm_Matrices[MATRIX_WORLD_VIEW_PROJECTION] * object_space_pos;
     
     v_vColour = in_Colour;/*vec4(wind1Noise, wind1Noise, wind1Noise, 1.);*/
-    v_vTexcoord = in_TextureCoord;
+    v_vTexcoord = vec2(0, 0);//in_TextureCoord;
 }

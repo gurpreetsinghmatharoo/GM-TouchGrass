@@ -38,9 +38,15 @@ Generate = function () {
 	_bladeInfo.tipColour = bladeTipColour;
 	_bladeInfo.bend = bladeBend;
 
-	var _x, _y, _len, _dir;
+	var _x, _y, _len, _dir, _size = max(sprite_width, sprite_height);
 	for (var _rx = 0; _rx <= sprite_width; _rx += bladeDist * xToYDistRatio) {
 		for (var _ry = 0; _ry <= sprite_height; _ry += bladeDist) {
+			// Distance to center
+			var _dist = point_distance(_rx, _ry, sprite_width / 2, sprite_height / 2) / _size;
+			if (random(0.5) < _dist * centerFocus) {
+				continue;
+			}
+			
 			// Final grass blade position
 			_len = point_distance(0, 0, _rx, _ry);
 			_dir = point_direction(0, 0, _rx, _ry);
