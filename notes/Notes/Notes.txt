@@ -6,6 +6,6 @@ Optimise things so each grass instance is not having to do the same thing again 
 windXScale should be Size
 
 To do:
-Wind noise has seams (updated noise func used?)
+No movement when -Y wind (90 degrees)
 Noise based placement
 Rotating grass instance should place grass in rotated rect area

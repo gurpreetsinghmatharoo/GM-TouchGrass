@@ -18,7 +18,7 @@ uniform float yOffset;
 // Wind uniforms
 uniform float time;
 uniform float wind1Power;
-uniform vec2 wind1Speed;
+uniform vec3 wind1Speed;
 uniform float wind1Scale;
 
 
@@ -65,13 +65,15 @@ void main()
 	float height = (in_Position.y - in_Normal.y) / in_Normal.z;
 	
 	// Get wind1 noise value
-	vec2 wind1Pos = (in_Position.xy - wind1Speed * time) / wind1Scale;
+	vec2 wind1Pos = (in_Position.xy - wind1Speed.xy * time) / wind1Scale;
 	//wind1Pos = mod(wind1Pos, 1.);
 	float wind1Noise = fractal_noise(wind1Pos * 4., 2, 0.5);
 	
 	// Wind
 	float windEffect = wind1Power * -abs(height * height);
-	vec2 windOffset = -vec2(wind1Noise * sign(wind1Speed.x), wind1Noise * sign(wind1Speed.y)) * windEffect;
+	//vec2 windNormalised = vec2(sign(wind1Speed.x), sign(wind1Speed.y));
+	vec2 windNormalised = vec2(wind1Speed.x / wind1Speed.z, wind1Speed.y / wind1Speed.z);
+	vec2 windOffset = -vec2(wind1Noise * windNormalised.x, wind1Noise * windNormalised.y) * windEffect;
 	windOffset.y -= windEffect * wind1Noise;
 	
 	// Collider

@@ -26,7 +26,7 @@ if (instance_exists(playerInst)) {
 
 // Wind 1 uniforms
 shader_set_uniform_f(uniWind1Power, wind1Power);
-shader_set_uniform_f(uniWind1Speed, lengthdir_x(wind1Speed, wind1Direction), lengthdir_y(wind1Speed, wind1Direction));
+shader_set_uniform_f(uniWind1Speed, lengthdir_x(wind1Speed, wind1Direction), lengthdir_y(wind1Speed, wind1Direction), wind1Speed);
 shader_set_uniform_f(uniWind1Scale, wind1Scale);
 
 vertex_submit(vbMain, pr_trianglelist, -1);
