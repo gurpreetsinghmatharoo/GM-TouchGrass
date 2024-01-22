@@ -7,6 +7,12 @@ if (object_exists(playerObject)) {
 	playerInst = instance_find(playerObject, 0);
 }
 
+// Culling bounds
+cullX1 = x;
+cullY1 = y;
+cullX2 = x + sprite_width;
+cullY2 = y + sprite_height;
+
 // Define format
 vertex_format_begin();
 
@@ -32,9 +38,16 @@ Generate = function () {
 	_bladeInfo.tipColour = bladeTipColour;
 	_bladeInfo.bend = bladeBend;
 
-	var _x2 = x + sprite_width, _y2 = y + sprite_height;
-	for (var _x = x; _x <= _x2; _x += bladeDist * xToYDistRatio) {
-		for (var _y = y; _y <= _y2; _y += bladeDist) {
+	var _x, _y, _len, _dir;
+	for (var _rx = 0; _rx <= sprite_width; _rx += bladeDist * xToYDistRatio) {
+		for (var _ry = 0; _ry <= sprite_height; _ry += bladeDist) {
+			// Final grass blade position
+			_len = point_distance(0, 0, _rx, _ry);
+			_dir = point_direction(0, 0, _rx, _ry);
+			_x = x + lengthdir_x(_len, _dir + image_angle);
+			_y = y + lengthdir_y(_len, _dir + image_angle);
+			
+			// Change blade info to pass into function
 			_bladeInfo.bend = bladeBend + random_range(-bladeBendJitter / 2, bladeBendJitter / 2);
 			_bladeInfo.baseThickness = bladeBaseThickness + random_range(-bladeBaseJitter / 2, bladeBaseJitter / 2);
 			_bladeInfo.height = bladeHeight + random_range(-bladeHeightJitter / 2, bladeHeightJitter / 2);
@@ -43,6 +56,12 @@ Generate = function () {
 				_x + random_range(-bladePositionJitter / 2, bladePositionJitter / 2),
 				_y + random_range(-bladePositionJitter / 2, bladePositionJitter / 2),
 				_bladeInfo);
+			
+			// Set cull bounds
+			cullX1 = min(_x, cullX1);
+			cullY1 = min(_y, cullY1);
+			cullX2 = max(_x, cullX2);
+			cullY2 = max(_y, cullY2);
 		}
 	}
 
