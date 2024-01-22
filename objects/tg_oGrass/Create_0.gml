@@ -18,7 +18,7 @@ vertex_format_begin();
 
 vertex_format_add_position_3d();
 vertex_format_add_color();
-vertex_format_add_custom(vertex_type_float2, vertex_usage_texcoord); // Offset
+vertex_format_add_custom(vertex_type_float2, vertex_usage_texcoord); // Stiffness, colour variation
 vertex_format_add_custom(vertex_type_float3, vertex_usage_normal); // Grass base position (xy) and total height
 
 vfMain = vertex_format_end();
@@ -37,6 +37,7 @@ Generate = function () {
 	_bladeInfo.baseColour = bladeBaseColour;
 	_bladeInfo.tipColour = bladeTipColour;
 	_bladeInfo.bend = bladeBend;
+	_bladeInfo.stiffnessSpread = stiffnessSpread;
 
 	var _x, _y, _len, _dir, _size = max(sprite_width, sprite_height);
 	for (var _rx = 0; _rx <= sprite_width; _rx += bladeDist * xToYDistRatio) {
@@ -111,7 +112,7 @@ if (!instance_exists(tg_oManager)) {
 		dbg_slider_int(ref_create(self, "bladeDivs"), 0, 32, "Divs");
 		dbg_color(ref_create(self, "bladeBaseColour"), "Base Colour");
 		dbg_color(ref_create(self, "bladeTipColour"), "Tip Colour");
-		dbg_slider_int(ref_create(self, "bladeBend"), 1, 100, "Bend");
+		dbg_slider_int(ref_create(self, "bladeBend"), -100, 100, "Bend");
 		dbg_section("Jitters");
 		dbg_slider_int(ref_create(self, "bladePositionJitter"), 1, 100, "Position Jitter");
 		dbg_slider_int(ref_create(self, "bladeBendJitter"), 1, 100, "Bend Jitter");
@@ -126,8 +127,9 @@ if (!instance_exists(tg_oManager)) {
 		dbg_section("Wind 1");
 		dbg_slider(ref_create(self, "wind1Power"), 0, 50);
 		dbg_slider(ref_create(self, "wind1Speed"), 0, 50);
-		dbg_slider(ref_create(self, "wind1Direction"), 0, 360);
-		dbg_slider(ref_create(self, "wind1Scale"), 10, 10000);
+		dbg_slider_int(ref_create(self, "wind1Direction"), 0, 360);
+		dbg_slider_int(ref_create(self, "wind1Scale"), 10, 10000);
+		dbg_slider(ref_create(self, "stiffnessSpread"), 0, 1);
 	}
 }
 

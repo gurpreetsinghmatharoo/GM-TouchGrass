@@ -6,4 +6,5 @@ function BladeInfo () constructor {
 	baseColour = c_gray;
 	tipColour = c_white;
 	bend = 0;
+	stiffnessSpread = 0;
 }

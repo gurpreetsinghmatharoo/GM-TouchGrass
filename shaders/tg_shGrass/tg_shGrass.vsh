@@ -76,6 +76,9 @@ void main()
 	vec2 windOffset = -vec2(wind1Noise * windNormalised.x, wind1Noise * windNormalised.y) * windEffect;
 	windOffset.y -= (windEffect * wind1Noise) * 0.5;
 	
+	float stiffness = in_TextureCoord.x;
+	windOffset *= 1. - stiffness;
+	
 	// Collider
 	// Calculate offset to move
     float dist = distance(bottomPos, playerPos);

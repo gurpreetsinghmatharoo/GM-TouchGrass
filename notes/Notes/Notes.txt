@@ -9,3 +9,7 @@ To do:
 Noise based placement
 Stiffness
 Different colours - worldpos noise?
+
+wind2?
+
+documentation
