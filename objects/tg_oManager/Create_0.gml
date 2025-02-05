@@ -1,3 +1,6 @@
+gpu_set_ztestenable(true);
+gpu_set_alphatestenable(true);
+
 // Camera
 mainCamera = view_get_camera(0);
 

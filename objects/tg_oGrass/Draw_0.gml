@@ -23,6 +23,12 @@ if (instance_exists(playerInst)) {
 	shader_set_uniform_f(uniCollisionBend, collisionBend);
 	shader_set_uniform_f(uniYOffset, collisionYBend);
 }
+else {
+	shader_set_uniform_f(uniPlayerPos, -10000, -10000);
+	shader_set_uniform_f(uniPlayerRadius, 1);
+	shader_set_uniform_f(uniCollisionBend, 1);
+	shader_set_uniform_f(uniYOffset, 1);
+}
 
 // Wind 1 uniforms
 shader_set_uniform_f(uniWind1Power, wind1Power);

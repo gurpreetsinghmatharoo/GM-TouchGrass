@@ -1,5 +1,3 @@
-gpu_set_ztestenable(true);
-
 // Get player
 playerInst = undefined;
 

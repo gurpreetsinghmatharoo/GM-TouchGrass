@@ -25,12 +25,11 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2023.11.0.121",
+    "IDEVersion":"2024.11.0.179",
   },
   "name":"TouchGrass",
   "resources":[
     {"id":{"name":"tg_acGrassCurve","path":"animcurves/tg_acGrassCurve/tg_acGrassCurve.yy",},},
-    {"id":{"name":"Notes","path":"notes/Notes/Notes.yy",},},
     {"id":{"name":"tg_demo_oPlayer","path":"objects/tg_demo_oPlayer/tg_demo_oPlayer.yy",},},
     {"id":{"name":"tg_oGrass","path":"objects/tg_oGrass/tg_oGrass.yy",},},
     {"id":{"name":"tg_oManager","path":"objects/tg_oManager/tg_oManager.yy",},},
