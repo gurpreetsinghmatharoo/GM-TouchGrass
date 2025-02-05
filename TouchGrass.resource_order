@@ -1,5 +1,5 @@
 {
-  "FolderOrderSettings": [
+  "FolderOrderSettings":[
     {"name":"TouchGrass_DemoAssets","order":16,"path":"folders/TouchGrass_DemoAssets.yy",},
     {"name":"Rooms","order":1,"path":"folders/TouchGrass_DemoAssets/Rooms.yy",},
     {"name":"Sprites","order":2,"path":"folders/TouchGrass_DemoAssets/Sprites.yy",},
@@ -10,12 +10,12 @@
     {"name":"Shaders","order":6,"path":"folders/TouchGrass/Shaders.yy",},
     {"name":"Sprites","order":2,"path":"folders/TouchGrass/Sprites.yy",},
   ],
-  "ResourceOrderSettings": [
+  "ResourceOrderSettings":[
     {"name":"Notes","order":18,"path":"notes/Notes/Notes.yy",},
-    {"name":"tg_sPerlin512B","order":2,"path":"sprites/tg_sPerlin512B/tg_sPerlin512B.yy",},
-    {"name":"tg_sPerlin256","order":3,"path":"sprites/tg_sPerlin256/tg_sPerlin256.yy",},
     {"name":"tg_oManager","order":1,"path":"objects/tg_oManager/tg_oManager.yy",},
-    {"name":"tg_sPerlin512","order":1,"path":"sprites/tg_sPerlin512/tg_sPerlin512.yy",},
     {"name":"tg_Functions","order":1,"path":"scripts/tg_Functions/tg_Functions.yy",},
+    {"name":"tg_sPerlin256","order":3,"path":"sprites/tg_sPerlin256/tg_sPerlin256.yy",},
+    {"name":"tg_sPerlin512","order":1,"path":"sprites/tg_sPerlin512/tg_sPerlin512.yy",},
+    {"name":"tg_sPerlin512B","order":2,"path":"sprites/tg_sPerlin512B/tg_sPerlin512B.yy",},
   ],
 }

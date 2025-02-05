@@ -1,9 +1,11 @@
 {
-  "resourceType": "GMNotes",
-  "resourceVersion": "1.1",
-  "name": "Notes",
-  "parent": {
-    "name": "TouchGrass",
-    "path": "TouchGrass.yyp",
+  "$GMNotes":"",
+  "%Name":"Notes",
+  "name":"Notes",
+  "parent":{
+    "name":"TouchGrass",
+    "path":"TouchGrass.yyp",
   },
+  "resourceType":"GMNotes",
+  "resourceVersion":"2.0",
 }

@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "tg_Functions",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Scripts",
-    "path": "folders/TouchGrass/Scripts.yy",
+  "$GMScript":"v1",
+  "%Name":"tg_Functions",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"tg_Functions",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/TouchGrass/Scripts.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }
