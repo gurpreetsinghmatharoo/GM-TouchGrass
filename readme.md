@@ -1,6 +1,8 @@
-# TOUCH GRASS for GameMaker
+# TouchGrass for GameMaker
 
 This is procedurally generated grass for your GameMaker games.
+
+https://github.com/user-attachments/assets/931990c6-3545-4c56-8bde-c5c29a27efbb
 
 You can adjust the blade sizes and colours, the bend, generation properties and wind properties.
 
@@ -12,7 +14,7 @@ Download the .yymps file from the Releases.
 
 Import into your project. Import the "TouchGrass" folder.
 
-You can import the Demo Assets folder if you want to test with the included demo assets.
+You can import the Demo Assets folder if you wish to test with the included demo assets.
 
 ## How to use
 
